@@ -32,23 +32,28 @@ img.icon{
   height: 200px;
   line-height: 200px;
 }
-#selectedSPDiv, #selectedFlavorDiv {
+
+.selectedSPDiv, .selectedFlavorDiv {
   background-color: #006699;
   color:white;
 }
+
 .spelement:hover {
   background-color: #006699;
   color:white;
 }
+
 #flavors {
   padding-top: 30px;
   padding-bottom: 30px;
 }
+
 .flavor {
   text-align: center;
   padding-top: 40px;
   height: 100px;
 }
+
 .flavor:hover{
   background-color: #006699;
   color:white;
