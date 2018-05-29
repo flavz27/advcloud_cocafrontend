@@ -1,14 +1,14 @@
 let selectedSp = "toto"
 let selectedFlavor = "tiny"
 let performancedata = ""
-var x = document.getElementById("flavors");
-var y = document.getElementById("performancedata");
+let x = null
+let y = null
 y.style.display = "none";
 
 function selectSp(sp) {
   selectedSp = sp;
   var alreadySelected = document.getElementById("selectedSPDiv")
-  if(alreadySelected){
+  if(alreadySelected) {
     alreadySelected.removeAttribute("id")
   } //TODO fucking shit
   console.log("already selected" + alreadySelected)
@@ -18,7 +18,7 @@ function selectSp(sp) {
 }
 
 function toggleFlavorDiv() {
-  var x = document.getElementById("flavors");
+  // var x = document.getElementById("flavors");
   x.removeAttribute('class');
 }
 
@@ -40,7 +40,7 @@ function selectFlavor(flavor) {
 }
 
 function togglePerformanceData() {
-  var y = document.getElementById("performancedata");
+  // var y = document.getElementById("performancedata");
   y.style.display = "block";
   callApi();
 }
@@ -84,3 +84,9 @@ function callApi() {
       // This is where you run code if the server returns any errors
     });
 }
+
+
+(function(){
+ x = document.querySelector("#flavors");
+ y = document.querySelector("#performancedata");
+})();
