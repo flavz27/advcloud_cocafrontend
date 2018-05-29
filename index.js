@@ -1,48 +1,47 @@
-let selectedSp = "toto"
-let selectedFlavor = "tiny"
+let selectedSp = null
+let selectedFlavor = null
 let performancedata = ""
-let x = null
-let y = null
-y.style.display = "none";
 
-function selectSp(sp) {
-  selectedSp = sp;
-  var alreadySelected = document.getElementById("selectedSPDiv")
-  if(alreadySelected) {
-    alreadySelected.removeAttribute("id")
-  } //TODO fucking shit
-  console.log("already selected" + alreadySelected)
-  var div = document.getElementById(sp + "sp");
-  div.setAttribute("id", "selectedSPDiv");
-  toggleFlavorDiv();
+function resetClass(CSSclass) {
+  const alreadySelected = document.querySelectorAll(`.${CSSclass}`)
+  if(alreadySelected.length > 0) {
+    for(e of alreadySelected)
+      e.classList.remove(CSSclass)
+  }
 }
 
-function toggleFlavorDiv() {
-  // var x = document.getElementById("flavors");
-  x.removeAttribute('class');
+function toggleSp(sp) {
+  selectedSp = sp
+  resetClass("selectedSPDiv")
+  const div = document.querySelector(`#${sp}sp`)
+  div.classList.add("selectedSPDiv")
+
+  const subDiv = document.querySelector(`#flavors`)
+  subDiv.classList.remove("hidden")
 }
 
-function selectFlavor(flavor) {
+function toggleFlavor(flavor) {
   selectedFlavor = flavor;
-  var div = document.getElementById(flavor + "flavor");
-  var alreadySelected = document.getElementById("selectedFlavorDiv")
-  if(alreadySelected){
-    alreadySelected.removeAttribute("id")
-  } //TODO fucking shit
-  console.log("already selected" + alreadySelected)
-  div.setAttribute("id", "selectedFlavorDiv");
-  togglePerformanceData();
+  resetClass("selectedFlavorDiv")
+  const div = document.querySelector(`#${flavor}flavor`)
 
-  selectedFlavor = flavor;
-  var div = document.getElementById(flavor + "flavor");
-
-  togglePerformanceData();
+  div.classList.add("selectedFlavorDiv")
+  togglePerformanceData()
 }
 
 function togglePerformanceData() {
-  // var y = document.getElementById("performancedata");
-  y.style.display = "block";
+  const dataDiv = document.querySelector("#performancedata");
+  dataDiv.classList.remove("hidden")
   callApi();
+}
+
+// Retro compat.
+function selectSp(sp) {
+  toggleSp(sp)
+}
+
+function selectFlavor(flavor) {
+  toggleFlavor(flavor)
 }
 
 function callApi() {
@@ -59,7 +58,7 @@ function callApi() {
           cell1.innerHTML = "No results (yet)"
           console.log("no results");
         } else{
-          let benchmarkingResults = data[0]["benchmarks"];
+          const benchmarkingResults = data[0]["benchmarks"];
           console.log(benchmarkingResults)
 
 
@@ -85,8 +84,6 @@ function callApi() {
     });
 }
 
-
 (function(){
- x = document.querySelector("#flavors");
- y = document.querySelector("#performancedata");
-})();
+  // $ready()...
+})()
