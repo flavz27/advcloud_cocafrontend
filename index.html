@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>CocaPT Performance API</title>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+</head>
+
+<body>
+
+  <div class="header text-center">
+    <img class="icon" src="img/cloud.png">
+    <h1 class="text-center">CocaPT</h1>
+    <h2 class="text-center">Performance API</h2>
+  </div>
+  <div id="container">
+    <h4 class="text-center">Select Service Provider</h4>
+    <div class="row sp">
+      <div id="AWSsp" class="spelement col-md" onClick='selectSp("AWS")'>
+        <div class="imgwrapper text-center">
+          <img class="iconsp" src="img/aws.png">
+        </div>
+        <h2 class="text-center">AWS</h2>
+      </div>
+      <div id="gcesp" class="spelement col-md" onClick='selectSp("gce")'>
+        <div class="imgwrapper text-center">
+          <img class="iconsp" src="img/gce.png">
+        </div>
+        <h2 class="text-center">GCE</h2>
+      </div>
+      <div id="exosp" class="spelement col-md" onClick='selectSp("exo")'>
+        <div class="imgwrapper text-center">
+          <img class="iconsp" src="img/exoscale.png">
+        </div>
+        <h2 class="text-center">Exoscale</h2>
+      </div>
+      <div id="switchsp" class="spelement col-md" onClick='selectSp("switch")'>
+        <div class="imgwrapper text-center">
+          <img class="iconsp" src="img/switch.png">
+        </div>
+        <h2 class="text-center">SwitchEngines</h2>
+      </div>
+    </div>
+    <div id="flavors" class="hidden">
+      <h4 class="selectiontitle text-center ">Select Flavor</h4>
+      <div class="row flavors">
+        <div id="tinyflavor" class="col-md-3 flavor" onClick='selectFlavor("tiny")'>Tiny</div>
+        <div id="smallflavor" class="col-md-3 flavor" onClick='selectFlavor("small")'>Small</div>
+        <div id="mediumflavor" class="col-md-3 flavor" onClick='selectFlavor("medium")'>Medium</div>
+        <div id="largeflavor" class="col-md-3 flavor" onClick='selectFlavor("large")'>Large</div>
+    </div>
+  </div>
+
+  <div id="performancedata" class="row performancedata">
+    <div id="performancedatacontent" class="col-md performancedatacontent">
+      <table class="table" id="performancedatatable">
+        <thead>
+          <tr>
+
+            <th scope="col">Benchmark</th>
+            <th scope="col">Metric</th>
+            <th scope="col">Value</th>
+            <th scope="col">Unit</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+
+
+  <script src="index.js"></script>
+  </div>
+</body>
+
+</html>

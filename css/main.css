@@ -1,0 +1,59 @@
+
+
+.header{
+  background-color:#006699;
+  color:white;
+  padding: 20px;
+}
+
+img.icon{
+  width:200px;
+  margin: 10px;
+}
+#container{
+  padding-left: 150px;
+  padding-right: 150px;
+  padding-top: 30px;
+}
+.iconsp{
+  max-width: 300px;
+  display: inline-block;
+   vertical-align: middle;
+}
+
+.hidden{
+  display: none;
+}
+.selectiontitle{
+  padding-bottom: 20px;
+}
+
+.imgwrapper {
+  height: 200px;
+  line-height: 200px;
+}
+#selectedSPDiv, #selectedFlavorDiv {
+  background-color: #006699;
+  color:white;
+}
+.spelement:hover {
+  background-color: #006699;
+  color:white;
+}
+#flavors {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.flavor {
+  text-align: center;
+  padding-top: 40px;
+  height: 100px;
+}
+.flavor:hover{
+  background-color: #006699;
+  color:white;
+}
+
+.sp {
+  padding-top:30px;
+}
